@@ -1,0 +1,31 @@
+<h1>Cars on Rails | Session <%= @session.name %></h1>
+
+<% headers = ["Driver", "Sector 1", "Sector 2", "Sector 3", "Current Lap", "Best Lap", "PB S1", "PB S2", "PB S3", "PB Lap", "Avg Lap", "All Time Best"] %>
+
+<table>
+  <thead>
+    <tr>
+      <% headers.map do |header| %>
+        <th scope="col"><%= header %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @drivers.map do |driver| %>
+      <tr>
+        <th scope="row"><%= "#{driver.number} #{driver.first_name} #{driver.last_name}" %></th>
+        <td><%= driver.current_lap.s1_time %></td>
+        <td><%= driver.current_lap.s2_time %></td>
+        <td><%= driver.current_lap.s3_time %></td>
+        <td><%= driver.current_lap.time %></td>
+        <td><%= driver.current_performance.best_lap_time %></td>
+        <td><%= driver.current_performance.best_s1_time %></td>
+        <td><%= driver.current_performance.best_s2_time %></td>
+        <td><%= driver.current_performance.best_s3_time %></td>
+        <td><%= driver.current_performance.best_potential_time %></td>
+        <td><%= driver.current_performance.average_time %></td>
+        <td><%= driver.all_time_best %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

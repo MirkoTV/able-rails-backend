@@ -1,0 +1,2 @@
+class TooManyDriversError < StandardError
+end
