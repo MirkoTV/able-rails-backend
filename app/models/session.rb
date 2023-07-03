@@ -4,6 +4,6 @@ class Session < ApplicationRecord
   validates :name, uniqueness: true
 
   def self.current
-    nil
+    Session.where.not(active_at: nil).first || Session.order("created_at DESC").first
   end
 end

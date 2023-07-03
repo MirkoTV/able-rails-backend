@@ -79,3 +79,6 @@ nbproject/private/
 /pkg
 Gemfile.lock
 node_modules/
+
+bin/
+config/database.yml

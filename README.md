@@ -108,3 +108,21 @@ Update the background job to handle the following actions:
 ### 3: Real time
 
 Use ActionCable to update the results table in real time.
+
+
+
+
+-------------------------------------------------------
+
+# To setup the project/database
+1. setup your db credentials and host in case you use a db that is not in localhost (database.yml)
+2. rails db:setup
+3. rails db:seed
+4. raild db:migrate
+5. bundle exec webpack:install
+
+# In order to reset the data:
+1. Ensure you are not running rails runner runner.rb
+2. Ensure you are not running sidekiq
+3. run: rails runner cleanup.rb
+4. In rails console, clean up redis: Sidekiq.redis(&:flushdb)

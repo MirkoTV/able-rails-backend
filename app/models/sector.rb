@@ -2,9 +2,9 @@ class Sector < ApplicationRecord
   belongs_to :lap
   belongs_to :driver
 
-  after_save :queue_sector
+  after_commit :queue_sector
 
   def queue_sector
-    SectorHandlerJob.perform_later(self)
+    SectorHandlerJob.perform_later(id)
   end
 end

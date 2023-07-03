@@ -5,6 +5,8 @@ class Performance < ApplicationRecord
   has_many :laps
 
   def has_valid_times?
-    nil
+    return true if dnf?
+
+    laps.flat_map(&:sectors).all? { |sector| sector.time != 0 }
   end
 end
